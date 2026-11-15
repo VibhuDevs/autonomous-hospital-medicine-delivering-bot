@@ -1,0 +1,12 @@
+# ROS 2 / colcon generated output
+build/
+install/
+log/
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary backups
+*.bak

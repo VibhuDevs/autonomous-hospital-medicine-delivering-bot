@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<root BTCPP_format="4" main_tree_to_execute="MedicineDelivery">
+  <BehaviorTree ID="MedicineDelivery">
+    <Sequence name="medicine_delivery">
+      <GoToPose location="medical_shop"/>
+      <Wait seconds="5"/>
+      <Fallback name="select_delivery_room">
+        <Sequence name="go_to_room101">
+          <IsDeliveryRoom delivery_room="{delivery_room}" expected="room101"/>
+          <GoToPose location="room101"/>
+        </Sequence>
+        <Sequence name="go_to_room102">
+          <IsDeliveryRoom delivery_room="{delivery_room}" expected="room102"/>
+          <GoToPose location="room102"/>
+        </Sequence>
+      </Fallback>
+      <Wait seconds="5"/>
+      <GoToPose location="initial_pose"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Node models for Groot2. -->
+  <TreeNodesModel>
+    <Action ID="GoToPose">
+      <input_port name="location" type="std::string"/>
+    </Action>
+    <Action ID="Wait">
+      <input_port name="seconds" type="double"/>
+    </Action>
+    <Condition ID="IsDeliveryRoom">
+      <input_port name="delivery_room" type="std::string"/>
+      <input_port name="expected" type="std::string"/>
+    </Condition>
+  </TreeNodesModel>
+</root>

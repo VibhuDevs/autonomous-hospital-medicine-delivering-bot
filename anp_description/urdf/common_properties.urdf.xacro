@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="anp_bot">
+
+	<material name="red">
+		<color rgba="0.7 0 0 1" />
+	</material>
+	
+	<material name="yellow">
+		<color rgba="1 1 0.878 1" />
+	</material>
+	
+	<material name="green">
+		<color rgba="0 0.6 0 1" />
+	</material>
+	
+	<material name="gray">
+		<color rgba="0.7 0.7 0.7 1" />
+	</material>
+	
+		
+	<xacro:macro name="base_inertia" params="m x y z o_xyz o_rpy">
+		<inertial>
+			<mass value="${m}" />
+				<origin xyz="${o_xyz}" rpy="${o_rpy}" />
+				<inertia
+				    ixx="${(m/12) * (z*z + y*y)}"
+				    ixy="0"
+				    iyy="${(m/12) * (x*x + z*z)}"
+				    iyz="0"
+				    izz="${(m/12) * (y*y + x*x)}"
+				    ixz="0" />
+		</inertial>
+	</xacro:macro>
+	
+	<xacro:macro name="cylinder_inertia" params="m r l o_xyz o_rpy">
+		<inertial>
+			<mass value="${m}" />
+				<origin xyz="${o_xyz}" rpy="${o_rpy}" />
+				<inertia
+					ixx="${(m/12) * (3*r*r + l*l)}"
+					iyy="${(m/12) * (3*r*r + l*l)}"
+					izz="${(m/2) * (r*r)}"
+					ixy="0"
+					iyz="0"
+					ixz="0" />
+		</inertial>
+	</xacro:macro>
+	
+</robot>

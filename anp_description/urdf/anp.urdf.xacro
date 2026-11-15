@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="anp_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find anp_description)/urdf/common_properties.urdf.xacro" />
+	<xacro:include filename="$(find anp_description)/urdf/bot_base.xacro" />
+	<xacro:include filename="$(find anp_description)/urdf/bot_base_gazebo.xacro" />
+	<xacro:include filename="$(find anp_description)/urdf/anp_bot.ros2_control.xacro" />
+	
+</robot>

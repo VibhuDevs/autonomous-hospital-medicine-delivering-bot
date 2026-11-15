@@ -1,0 +1,5 @@
+# Object locations as [x, y, theta]
+initial_pose: [9.21, 4.02, 0.0]
+medical_shop: [2.92, 4.58, 1.5]
+room101: [-8.03, -2.35, -3.11]
+room102: [-8.83, 2.68, 1.45]
